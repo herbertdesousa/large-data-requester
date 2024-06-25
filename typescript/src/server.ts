@@ -1,3 +1,4 @@
+import { CustomerDatasource } from "./customer-datasource";
 import { Setup } from "./setup";
 
 const READ_RATE_IN_MS = 1000;
@@ -23,6 +24,10 @@ async function main() {
       );
     }
   }, READ_RATE_IN_MS);
+
+  const customerDatasource = new CustomerDatasource();
+
+  console.log(customerDatasource.randomCustomer());
 }
 
 main();
