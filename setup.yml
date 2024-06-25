@@ -1,0 +1,3 @@
+typescript:
+  query_rate_per_seconds: 5
+  insert_rate_per_seconds: 5
