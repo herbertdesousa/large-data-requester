@@ -1,33 +1,21 @@
 import { CustomerDatasource } from "./customer-datasource";
 import { Setup } from "./setup";
 
-const READ_RATE_IN_MS = 1000;
-
 async function main() {
-  let setup = new Setup();
+  const setup = new Setup();
 
-  setInterval(() => {
-    const changed = setup.read();
+  // const customerDatasource = new CustomerDatasource();
+  // console.log(customerDatasource.randomCustomer());
 
-    const hasSetupChanged =
-      setup.insert_rate_per_seconds !==
-        changed.typescript.insert_rate_per_seconds ||
-      setup.query_rate_per_seconds !==
-        changed.typescript.query_rate_per_seconds;
+  const insertInterval = setInterval(() => {
+    console.log("insert");
+  }, setup.insertRatePerSeconds * 1000);
 
-    setup.insert_rate_per_seconds = changed.typescript.insert_rate_per_seconds;
-    setup.query_rate_per_seconds = changed.typescript.query_rate_per_seconds;
+  const queryInterval = setInterval(() => {
+    console.log("query");
+  }, setup.queryRatePerSeconds * 1000);
 
-    if (hasSetupChanged) {
-      console.log(
-        `CHANGED: insert rate=${setup.insert_rate_per_seconds}s, query rate=${setup.query_rate_per_seconds}s`
-      );
-    }
-  }, READ_RATE_IN_MS);
-
-  const customerDatasource = new CustomerDatasource();
-
-  console.log(customerDatasource.randomCustomer());
+  setInterval(() => {}, 100);
 }
 
 main();
