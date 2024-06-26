@@ -1,6 +1,5 @@
-import csv from "csv";
 import path from "path";
-import fs, { copyFileSync } from "fs";
+import fs from "fs";
 
 interface Customer {
   Cod_User: string;
