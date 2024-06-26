@@ -98,7 +98,6 @@ export class CustomerRepository {
       `
       SELECT Cod_User, Trade_Name, Phone 
       FROM customers 
-      WHERE Phone = '123-456-7890
     `,
       `
       SELECT Cod_User, Legal_Name, Address_Zip 
